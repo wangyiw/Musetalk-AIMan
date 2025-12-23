@@ -1,0 +1,26 @@
+[Unit]
+Description=MuseTalk WebSocket Service
+Documentation=https://github.com/TMElyralab/MuseTalk
+After=network.target multi-user.target
+
+[Service]
+Type=simple
+User=paeleap
+Group=paeleap
+WorkingDirectory=/home/paeleap/MuseTalk
+Environment=PATH=/home/paeleap/miniconda3/envs/MuseTalk/bin:/usr/local/bin:/usr/bin:/bin
+Environment=PYTHONPATH=/home/paeleap/MuseTalk
+ExecStart=/home/paeleap/miniconda3/envs/MuseTalk/bin/python service/websocket_service.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+KillSignal=SIGINT
+TimeoutStopSec=30
+
+# 资源限制
+LimitNOFILE=65536
+MemoryMax=16G
+
+[Install]
+WantedBy=multi-user.target 

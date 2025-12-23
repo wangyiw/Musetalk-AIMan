@@ -1,0 +1,25 @@
+logging:
+  level:
+    root: INFO  # 设置根日志级别为 DEBUG，这样可以捕获所有日志
+    # 你可以根据需要为特定包或类单独配置日志级别
+    # com.example: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %5p [%thread] %c{1}.%M(%L) - %msg%n"  # 控制台输出日志格式
+    file: "%d{yyyy-MM-dd HH:mm:ss} - %5p [%thread] %c{1}.%M(%L) - %msg%n"  # 文件输出日志格式
+  file:
+    name: logs/musetalk.log  # 日志文件输出路径
+spring:
+  ai:
+    #    dashscope:
+    #      baseurl: https://dashscope.aliyuncs.com/compatible-mode
+    #      api-key: sk-b6349677e5fa426fa4263ca130af5f8b
+    #      chat:
+    #        options:
+    #          model: qwen-plus
+    # In application.yml
+    openai:
+      base-url: https://openrouter.ai/api/v1/chat/completions
+      api-key: {accesskey}
+      chat:
+        options:
+          model: gpt-4-mini
